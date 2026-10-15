@@ -1,5 +1,5 @@
 /* ===== KONFIGURASI (edit di sini) ===== */
-const WA_NUMBER = "6289699723783";           // 089699723783
+const WA_NUMBER = "6285711128781";           // 089699723783
 const IMG = { banner:"assets/img/BANNER3.png", produk:"assets/img/produk.png" };
 /* code = kode varian untuk pesan order WA, format: buy <code> <jumlah> (contoh: buy canva1b 1) */
 const PRODUCTS = [
