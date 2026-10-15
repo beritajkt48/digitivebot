@@ -10,7 +10,7 @@ const PRODUCTS = [
     img: "assets/img/capcut.png",
     desc: "CapCut adalah aplikasi editing video populer yang mudah digunakan untuk semua orang. Cocok untuk content creator, editor, maupun pemula yang ingin menghasilkan video keren hanya dengan smartphone.",
     variants: [
-      { name: "30 DAY", price: 32000, stock: 5, code: "defaultvarian" }
+      { name: "30 DAY", price: 32000, stock: 5, code: "cc28d" }
     ]
   },
   {
@@ -21,10 +21,10 @@ const PRODUCTS = [
     desc: "Canva adalah aplikasi desain grafis populer yang memudahkan siapa saja membuat poster, konten sosial media, presentasi, logo, hingga video dengan cepat dan praktis.",
     variants: [
       { name: "1 BULAN PRO (INVITE)", price: 5000, stock: 5, code: "canva1b" },
-      { name: "6 BULAN EDU GARANSI 3 BULAN", price: 8000, stock: 5, code: "defaultvarian" },
-      { name: "1 TAHUN EDU GARANSI 6 BULAN", price: 15000, stock: 5, code: "defaultvarian" },
-      { name: "LIFETIME GARANSI 6 BULAN", price: 20000, stock: 5, code: "defaultvarian" },
-      { name: "LIFETIME GARANSI 1 TAHUN", price: 22000, stock: 5, code: "defaultvarian" }
+      { name: "6 BULAN EDU GARANSI 3 BULAN", price: 8000, stock: 5, code: "canvaedu6b3b" },
+      { name: "1 TAHUN EDU GARANSI 6 BULAN", price: 15000, stock: 5, code: "canvaedu1t6b" },
+      { name: "LIFETIME GARANSI 6 BULAN", price: 20000, stock: 5, code: "canvalifetime6b" },
+      { name: "LIFETIME GARANSI 1 TAHUN", price: 22000, stock: 5, code: "canvalifetime" }
     ]
   },
   {
@@ -34,8 +34,8 @@ const PRODUCTS = [
     img: "assets/img/twitter.png",
     desc: "X Premium adalah layanan berlangganan berbayar opsional dari platform media sosial X yang memberikan berbagai fitur tambahan dan peningkatan visibilitas kepada penggunanya.",
     variants: [
-      { name: "PREMIUM 3 BULAN VIA GIFT", price: 110000, stock: 0, code: "defaultvarian" },
-      { name: "PREMIUM 6 BULAN VIA GIFT", price: 200000, stock: 0, code: "defaultvarian" }
+      { name: "PREMIUM 3 BULAN VIA GIFT", price: 110000, stock: 0, code: "stokkosong" },
+      { name: "PREMIUM 6 BULAN VIA GIFT", price: 200000, stock: 0, code: "stokkosong" }
     ]
   },
   {
@@ -45,9 +45,9 @@ const PRODUCTS = [
     img: "assets/img/netflix.png",
     desc: "Netflix Premium adalah paket berlangganan resmi dari Netflix yang memberikan akses penuh untuk menonton ribuan film, serial, dokumenter, anime, hingga tayangan eksklusif Netflix Original tanpa batas. Dengan kualitas gambar terbaik dan fitur multi-device, kamu bisa menikmati hiburan kapan saja, di mana saja, sesuai kebutuhan.",
     variants: [
-      { name: "1 DAY All Devices", price: 6000, stock: 1, code: "defaultvarian" },
-      { name: "2 USER 1 PROFIL Garansi 25-30 Hari", price: 22000, stock: 1, code: "defaultvarian" },
-      { name: "1 USER 1 PROFIL Garansi 25-30 Hari", price: 35000, stock: 1, code: "defaultvarian" }
+      { name: "1 DAY All Devices", price: 6000, stock: 1, code: "net1d" },
+      { name: "2 USER 1 PROFIL Garansi 25-30 Hari", price: 22000, stock: 1, code: "net2u1p" },
+      { name: "1 USER 1 PROFIL Garansi 25-30 Hari", price: 35000, stock: 1, code: "net1u1p" }
     ]
   },
   {
@@ -57,7 +57,7 @@ const PRODUCTS = [
     img: "assets/img/youtube.png",
     desc: "YouTube Premium memberikan pengalaman menonton yang lebih nyaman dengan akses penuh ke video, musik, dan konten favorit tanpa gangguan.",
     variants: [
-      { name: "INDIVIDUAL 1 BULAN", price: 26000, stock: 5, code: "defaultvarian" }
+      { name: "INDIVIDUAL 1 BULAN", price: 26000, stock: 5, code: "ytindv" }
     ]
   },
   {
@@ -67,7 +67,7 @@ const PRODUCTS = [
     img: "assets/img/vidplat.png",
     desc: "Vidio adalah platform streaming lokal terbesar di Indonesia yang menyediakan film, serial, drama, olahraga, hingga TV lokal & internasional dalam satu aplikasi.",
     variants: [
-      { name: "MOBILE ONLY", price: 32000, stock: 5, code: "defaultvarian" }
+      { name: "MOBILE ONLY", price: 32000, stock: 5, code: "vidplatmobile1pcs" }
     ]
   },
   {
@@ -77,7 +77,7 @@ const PRODUCTS = [
     img: "assets/img/spotify.png",
     desc: "Spotify adalah aplikasi streaming musik terbesar di dunia yang menghadirkan jutaan lagu, podcast, dan playlist dari berbagai genre dan artis favoritmu.",
     variants: [
-      { name: "INDIVIDUAL 1 BULAN No Garansi", price: 25000, stock: 5, code: "defaultvarian" }
+      { name: "INDIVIDUAL 1 BULAN No Garansi", price: 25000, stock: 5, code: "spoindividual" }
     ]
   },
   {
@@ -87,7 +87,7 @@ const PRODUCTS = [
     img: "assets/img/zoompro.png",
     desc: "Zoom Pro adalah paket premium yang dirancang untuk kebutuhan meeting profesional dengan durasi yang lebih panjang, kualitas lebih stabil, dan fitur lengkap. Mulai dari kapasitas hingga 100 peserta, cloud recording, breakout rooms, hingga tools presentasi dan kolaborasi—semuanya tersedia dalam satu platform. Cocok untuk guru, mahasiswa, perusahaan, pelaku bisnis online, tim kerja remote, hingga penyelenggara webinar. Dengan Zoom Pro, kamu bisa menjalankan meeting tanpa batasan waktu, lebih aman,",
     variants: [
-      { name: "ZOOM 14D", price: 10000, stock: 1, code: "defaultvarian" }
+      { name: "ZOOM 14D", price: 10000, stock: 1, code: "zoom14d" }
     ]
   }
 ];
