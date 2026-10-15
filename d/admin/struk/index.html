@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generator Struk Transaksi</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e9e9ec; --panel:#fff; --ink:#111; --muted:#666; --line:#d6d6db; --accent:#4262b2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 16px;display:grid;gap:24px;grid-template-columns:minmax(0,340px) minmax(0,1fr);align-items:start}
+  @media (max-width:760px){.wrap{grid-template-columns:1fr}}
+
+  /* ---------- Form ---------- */
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .panel h1{font-size:18px;margin:0 0 14px}
+  label{display:block;font-size:13px;color:var(--muted);margin:12px 0 4px}
+  input,textarea{width:100%;font:inherit;font-size:14px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+  input:focus,textarea:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+  textarea{min-height:80px;resize:vertical}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  button{font:inherit;font-size:14px;padding:9px 14px;border-radius:6px;border:1px solid var(--line);background:#fff;cursor:pointer}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  button:hover{filter:brightness(.96)}
+
+  /* ---------- Struk ---------- */
+  .stage{display:flex;justify-content:center;overflow-x:auto;padding-bottom:8px}
+  .receipt{
+    width:44ch; flex:none;
+    background:#fff; color:#000;
+    font-family:"Share Tech Mono","DejaVu Sans Mono",Consolas,monospace;
+    font-size:19px; line-height:1.55;
+    padding:34px 3ch 38px;
+  }
+  .center{text-align:center}
+  .brand{font-weight:700;font-size:21px;-webkit-text-stroke:.4px #000}
+  .eq,.dash{white-space:nowrap;overflow:hidden;line-height:1.2;margin:6px 0}
+  .row{display:flex;white-space:pre-wrap}
+  .row .k{flex:0 0 9ch}
+  .row .v{flex:1;min-width:0;word-break:break-word}
+  .section{font-weight:700;-webkit-text-stroke:.4px #000;margin-top:6px}
+  .detail{min-height:3.1em;margin:2px 0 6px;white-space:pre-wrap;word-break:break-word}
+  .status{
+    font-weight:700;font-size:46px;line-height:1.1;letter-spacing:-2px;
+    -webkit-text-stroke:1px #000;margin:14px 0 24px;text-transform:uppercase;
+    transform:scaleX(.92);transform-origin:center;white-space:nowrap
+  }
+  .foot{font-size:17.5px;line-height:1.5}
+
+  @media print{
+    body{background:#fff}
+    .panel,.hint{display:none!important}
+    .wrap{display:block;padding:0}
+    .stage{overflow:visible}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= FORM ================= -->
+  <form class="panel" onsubmit="return false" autocomplete="off">
+    <h1>Data struk</h1>
+    <p style="margin:0;font-size:13px;color:var(--muted)">ID TRX, tanggal, dan jam dibuat otomatis (WIB).</p>
+
+    <label for="toko">Nama toko</label>
+    <input id="toko" value="DIGITAL.OSHITIVE.COM">
+
+    <div class="two">
+      <div><label for="produk">Produk</label><input id="produk" value="-"></div>
+      <div><label for="jumlah">Jumlah</label><input id="jumlah" value="-"></div>
+    </div>
+
+    <label for="customer">Customer</label>
+    <input id="customer" value="Nomer Customer">
+
+    <label for="admin">Admin</label>
+    <input id="admin" value="Nama Admin">
+
+    <label for="detail">Detail pesanan (satu item per baris)</label>
+    <textarea id="detail">-</textarea>
+
+    <div class="btns">
+      <button type="button" id="btnNow">Buat ID &amp; waktu baru</button>
+      <button type="button" id="btnPng" class="primary">Unduh PNG</button>
+      <button type="button" id="btnPrint">Cetak</button>
+    </div>
+  </form>
+
+  <!-- ================= STRUK ================= -->
+  <div class="stage">
+    <div class="receipt" id="receipt">
+      <div class="center brand" id="o-toko"></div>
+      <div class="center">TRANSACTION RECEIPT</div>
+      <div class="center">SECURE DIGITAL TRANSACTION SYSTEM</div>
+      <div class="eq" id="eq"></div>
+
+      <div class="row"><span class="k">ID TRX</span><span class="v">: <span id="o-trx"></span></span></div>
+      <div class="row"><span class="k">TANGGAL</span><span class="v">: <span id="o-tanggal"></span></span></div>
+      <div class="row"><span class="k">WAKTU</span><span class="v">: <span id="o-waktu"></span></span></div>
+      <div class="row"><span class="k">Produk</span><span class="v">: <span id="o-produk"></span></span></div>
+      <div class="row"><span class="k">Jumlah</span><span class="v">: <span id="o-jumlah"></span></span></div>
+      <div class="row"><span class="k">CUSTOMER</span><span class="v">: <span id="o-customer"></span></span></div>
+      <div class="row"><span class="k">ADMIN</span><span class="v">: <span id="o-admin"></span></span></div>
+
+      <div class="dash" id="dash1"></div>
+      <div class="section">DETAIL PESANAN</div>
+      <div class="detail" id="o-detail"></div>
+      <div class="dash" id="dash2"></div>
+
+      <div class="center status">TRANSAKSI SELESAI</div>
+      <div class="center foot">
+        <div>Terima kasih telah berbelanja!</div>
+        <div>Simpan struk sebagai bukti transaksi sah.</div>
+        <div>© RNF BOT SYSTEM</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var pad = function(n){ return String(n).padStart(2,"0"); };
+
+  function randomCode(len){
+    var chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", s = "";
+    for (var i=0;i<len;i++) s += chars[Math.floor(Math.random()*chars.length)];
+    return s;
+  }
+
+  // Ambil waktu sekarang dalam zona WIB (Asia/Jakarta), terlepas dari zona waktu perangkat
+  function wibParts(){
+    var fmt = new Intl.DateTimeFormat("id-ID", {
+      timeZone: "Asia/Jakarta",
+      weekday: "long", day: "numeric", month: "long", year: "numeric",
+      hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+    });
+    var p = {};
+    fmt.formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
+    var monthNum = new Intl.DateTimeFormat("en-US", {timeZone:"Asia/Jakarta", month:"numeric"}).format(new Date());
+    var weekday = p.weekday.charAt(0).toUpperCase() + p.weekday.slice(1);
+    return {
+      day: p.day, month: p.month, monthNum: monthNum, year: p.year,
+      weekday: weekday, hour: p.hour, minute: p.minute
+    };
+  }
+
+  function generate(){
+    var t = wibParts();
+    var idTrx = "TRX-" + pad(t.day) + pad(t.monthNum) + t.year.slice(2) + "-" + randomCode(6);
+    $("o-trx").textContent     = idTrx;
+    $("o-tanggal").textContent = t.weekday + ", " + t.day + " " + t.month + " " + t.year;
+    $("o-waktu").textContent   = pad(t.hour) + ":" + pad(t.minute) + " WIB";
+  }
+
+  function render(){
+    $("o-toko").textContent     = $("toko").value;
+    $("o-produk").textContent   = $("produk").value;
+    $("o-jumlah").textContent   = $("jumlah").value;
+    $("o-customer").textContent = $("customer").value;
+    $("o-admin").textContent    = $("admin").value;
+    $("o-detail").textContent   = $("detail").value;
+  }
+
+  function drawLines(){
+    $("eq").textContent    = "=".repeat(42);
+    $("dash1").textContent = "-".repeat(42);
+    $("dash2").textContent = "-".repeat(42);
+  }
+
+  document.querySelectorAll("form input, form textarea").forEach(function(el){
+    el.addEventListener("input", render);
+  });
+
+  $("btnNow").addEventListener("click", generate);
+  $("btnPrint").addEventListener("click", function(){ window.print(); });
+  $("btnPng").addEventListener("click", function(){
+    if (typeof html2canvas === "undefined"){ alert("html2canvas gagal dimuat. Periksa koneksi internet."); return; }
+    html2canvas($("receipt"), { scale: 2, backgroundColor: "#ffffff" }).then(function(canvas){
+      var a = document.createElement("a");
+      a.download = $("o-trx").textContent + ".png";
+      a.href = canvas.toDataURL("image/png");
+      a.click();
+    });
+  });
+
+  drawLines();
+  generate();
+  render();
+})();
+</script>
+</body>
+</html>
