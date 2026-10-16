@@ -92,6 +92,119 @@ const PRODUCTS = [
     variants: [
       { name: "ZOOM 14D", price: 10000, stock: 1, code: "zoom14d", bot: true }
     ]
+   },
+  {
+    id: 9,
+    name: "WETV",
+    category: "Streaming",
+    img: "assets/img/wetv.png",
+    desc: "WeTV berisi berbagai pilihan hiburan Asia, seperti drama China, Korea, Jepang, Thailand, anime, film, variety show, serta serial eksklusif WeTV Original.",
+    variants: [
+      { name: "SHARING 1 BULAN", price: 16000, stock: 2, code: "wetvsharing1b", bot: true },
+      { name: "PRIVATE 1 BULAN", price: 30000, stock: 2, code: "wetvpriv", bot: true }
+    ]
+  },
+  {
+    id: 10,
+    name: "ALIGHT MOTION",
+    category: "Productivity Tools",
+    img: "assets/img/alightmotion.png",
+    desc: "Alight Motion adalah aplikasi edit video dan animasi profesional yang menyediakan berbagai fitur efek visual, motion graphics, dan keyframe untuk menghasilkan video kreatif.",
+    variants: [
+      { name: "1 TAHUN", price: 12000, stock: 2, code: "am1t", bot: true }
+    ]
+     },
+  {
+    id: 11,
+    name: "APPLE MUSIC",
+    category: "Music Streaming",
+    img: "assets/img/applemusic.png",
+    desc: "Apple Music adalah layanan streaming musik dari Apple yang memungkinkan pengguna menikmati jutaan lagu, album, dan playlist dengan kualitas audio tinggi tanpa iklan.",
+    variants: [
+      { name: "FAMILY HEAD 1 BULAN", price: 12000, stock: 2, code: "appmushead1b", bot: true }
+    ]
+     },
+  {
+    id: 12,
+    name: "DISNEY",
+    category: "Streaming",
+    img: "assets/img/disney.png",
+    desc: "Disney+ adalah layanan streaming yang menyediakan berbagai film, serial, dan konten eksklusif dari Disney, Pixar, Marvel, Star Wars, serta National Geographic.",
+    variants: [
+      { name: "SHARING 1 BULAN", price: 31000, stock: 2, code: "disney6u", bot: true }
+    ]
+     },
+  {
+    id: 13,
+    name: "HBO MAX",
+    category: "Streaming",
+    img: "assets/img/hbo.png",
+    desc: "HBO Max adalah layanan streaming yang menyediakan berbagai film, serial populer, dan konten eksklusif dari HBO, Warner Bros., DC, serta berbagai studio ternama lainnya.",
+    variants: [
+      { name: "SHARING ULTIMATE 1 BULAN", price: 22000, stock: 2, code: "hbo6u", bot: true }
+    ]
+     },
+  {
+    id: 14,
+    name: "IQIYI",
+    category: "Streaming",
+    img: "assets/img/iqiyi.png",
+    desc: "iQIYI adalah platform streaming yang menyediakan berbagai drama Asia, film, anime, dan variety show dengan pilihan subtitle dalam berbagai bahasa.",
+    variants: [
+      { name: "PREMIUM 1 BULAN", price: 12000, stock: 2, code: "iqiyi1bprem", bot: true }
+    ]
+     },
+  {
+    id: 15,
+    name: "LISENSI WINDOWS",
+    category: "Productivity Tools",
+    img: "assets/img/windows.png",
+    desc: "Lisensi Windows adalah kunci atau izin resmi dari Microsoft untuk mengaktifkan dan menggunakan sistem operasi Windows sesuai ketentuan yang berlaku.",
+    variants: [
+      { name: "WINDOWS 10 PRO", price: 35000, stock: 2, code: "windows10", bot: true },
+      { name: "WINDOWS 11 PRO", price: 35000, stock: 2, code: "windows11pro", bot: true }
+    ]
+     },
+  {
+    id: 16,
+    name: "PRIME VIDEO",
+    category: "Streaming",
+    img: "assets/img/prime.png",
+    desc: "Prime Video adalah layanan streaming dari Amazon yang menyediakan berbagai film, serial TV, dan konten original eksklusif yang dapat ditonton secara online.",
+    variants: [
+      { name: "PRIVATE 1 BULAN", price: 15000, stock: 2, code: "prime1b", bot: true }
+    ]
+     },
+  {
+    id: 17,
+    name: "VIU PREMIUM",
+    category: "Streaming",
+    img: "assets/img/viu.png",
+    desc: "Viu adalah platform streaming yang menyediakan berbagai drama Korea, drama Asia, film, dan variety show dengan subtitle bahasa Indonesia.",
+    variants: [
+      { name: "1 TAHUN", price: 15000, stock: 2, code: "viu1t", bot: true },
+      { name: "LIFETIME", price: 17000, stock: 2, code: "viulifetime", bot: true }
+    ]
+     },
+  {
+    id: 18,
+    name: "VPN HMA",
+    category: "Productivity Tools",
+    img: "assets/img/hma.png",
+    desc: "HMA VPN adalah layanan VPN yang membantu melindungi privasi saat berinternet, mengenkripsi koneksi, dan menyamarkan alamat IP untuk mengakses internet dengan lebih aman.",
+    variants: [
+      { name: "1 BULAN", price: 15000, stock: 2, code: "vpnhma", bot: true }
+    ]
+     },
+  {
+    id: 19,
+    name: "VPN SURFSHARK",
+    category: "Productivity Tools",
+    img: "assets/img/surfshark.png",
+    desc: "Surfshark VPN adalah layanan VPN yang melindungi privasi online dengan mengenkripsi koneksi internet, menyembunyikan alamat IP, dan membantu mengakses konten dari berbagai wilayah.",
+    variants: [
+      { name: "2 BULAN", price: 27000, stock: 2, code: "vpnsurfshark3b", bot: true }
+    ]  
   }
 ];
 /* ===== HELPER ===== */
