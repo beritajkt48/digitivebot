@@ -1,7 +1,10 @@
 /* ===== KONFIGURASI (edit di sini) ===== */
-const WA_NUMBER = "6285711128781";           // 089699723783
+const WA_BOT = "6285711128781";     // nomor bot    -> varian dengan bot: true
+const WA_MANUAL = "6289699723783";  // nomor manual -> varian dengan bot: false
 const IMG = { banner:"assets/img/BANNER3.png", produk:"assets/img/produk.png" };
-/* code = kode varian untuk pesan order WA, format: buy <code> <jumlah> (contoh: buy canva1b 1) */
+/* code = kode varian untuk pesan order WA, format: buy <code> <jumlah> (contoh: buy canva1b 1)
+   bot  = true  -> order ke nomor bot (WA_BOT)
+          false -> order ke nomor manual (WA_MANUAL) */
 const PRODUCTS = [
   {
     id: 1,
@@ -10,7 +13,7 @@ const PRODUCTS = [
     img: "assets/img/capcut.png",
     desc: "CapCut adalah aplikasi editing video populer yang mudah digunakan untuk semua orang. Cocok untuk content creator, editor, maupun pemula yang ingin menghasilkan video keren hanya dengan smartphone.",
     variants: [
-      { name: "30 DAY", price: 32000, stock: 5, code: "cc28d" }
+      { name: "30 DAY", price: 32000, stock: 5, code: "cc28d", bot: true }
     ]
   },
   {
@@ -20,11 +23,11 @@ const PRODUCTS = [
     img: "assets/img/canva.png",
     desc: "Canva adalah aplikasi desain grafis populer yang memudahkan siapa saja membuat poster, konten sosial media, presentasi, logo, hingga video dengan cepat dan praktis.",
     variants: [
-      { name: "1 BULAN PRO (INVITE)", price: 5000, stock: 5, code: "canva1b" },
-      { name: "6 BULAN EDU GARANSI 3 BULAN", price: 8000, stock: 5, code: "canvaedu6b3b" },
-      { name: "1 TAHUN EDU GARANSI 6 BULAN", price: 15000, stock: 5, code: "canvaedu1t6b" },
-      { name: "LIFETIME GARANSI 6 BULAN", price: 20000, stock: 5, code: "canvalifetime6b" },
-      { name: "LIFETIME GARANSI 1 TAHUN", price: 22000, stock: 5, code: "canvalifetime" }
+      { name: "1 BULAN PRO (INVITE)", price: 5000, stock: 5, code: "canva1b", bot: true },
+      { name: "6 BULAN EDU GARANSI 3 BULAN", price: 8000, stock: 5, code: "canvaedu6b3b", bot: true },
+      { name: "1 TAHUN EDU GARANSI 6 BULAN", price: 15000, stock: 5, code: "canvaedu1t6b", bot: true },
+      { name: "LIFETIME GARANSI 6 BULAN", price: 20000, stock: 5, code: "canvalifetime6b", bot: true },
+      { name: "LIFETIME GARANSI 1 TAHUN", price: 22000, stock: 5, code: "canvalifetime", bot: true }
     ]
   },
   {
@@ -34,8 +37,8 @@ const PRODUCTS = [
     img: "assets/img/twitter.png",
     desc: "X Premium adalah layanan berlangganan berbayar opsional dari platform media sosial X yang memberikan berbagai fitur tambahan dan peningkatan visibilitas kepada penggunanya.",
     variants: [
-      { name: "PREMIUM 3 BULAN VIA GIFT", price: 110000, stock: 0, code: "stokkosong" },
-      { name: "PREMIUM 6 BULAN VIA GIFT", price: 200000, stock: 0, code: "stokkosong" }
+      { name: "PREMIUM 3 BULAN VIA GIFT", price: 110000, stock: 0, code: "stokkosong", bot: true },
+      { name: "PREMIUM 6 BULAN VIA GIFT", price: 200000, stock: 0, code: "stokkosong", bot: true }
     ]
   },
   {
@@ -45,9 +48,9 @@ const PRODUCTS = [
     img: "assets/img/netflix.png",
     desc: "Netflix Premium adalah paket berlangganan resmi dari Netflix yang memberikan akses penuh untuk menonton ribuan film, serial, dokumenter, anime, hingga tayangan eksklusif Netflix Original tanpa batas. Dengan kualitas gambar terbaik dan fitur multi-device, kamu bisa menikmati hiburan kapan saja, di mana saja, sesuai kebutuhan.",
     variants: [
-      { name: "1 DAY All Devices", price: 6000, stock: 1, code: "net1d" },
-      { name: "2 USER 1 PROFIL Garansi 25-30 Hari", price: 22000, stock: 1, code: "net2u1p" },
-      { name: "1 USER 1 PROFIL Garansi 25-30 Hari", price: 35000, stock: 1, code: "net1u1p" }
+      { name: "1 DAY All Devices", price: 6000, stock: 1, code: "net1d", bot: true },
+      { name: "2 USER 1 PROFIL Garansi 25-30 Hari", price: 22000, stock: 1, code: "net2u1p", bot: true },
+      { name: "1 USER 1 PROFIL Garansi 25-30 Hari", price: 35000, stock: 1, code: "net1u1p", bot: true }
     ]
   },
   {
@@ -57,7 +60,7 @@ const PRODUCTS = [
     img: "assets/img/youtube.png",
     desc: "YouTube Premium memberikan pengalaman menonton yang lebih nyaman dengan akses penuh ke video, musik, dan konten favorit tanpa gangguan.",
     variants: [
-      { name: "INDIVIDUAL 1 BULAN", price: 26000, stock: 5, code: "ytindv" }
+      { name: "INDIVIDUAL 1 BULAN", price: 26000, stock: 5, code: "ytindv", bot: true }
     ]
   },
   {
@@ -67,7 +70,7 @@ const PRODUCTS = [
     img: "assets/img/vidplat.png",
     desc: "Vidio adalah platform streaming lokal terbesar di Indonesia yang menyediakan film, serial, drama, olahraga, hingga TV lokal & internasional dalam satu aplikasi.",
     variants: [
-      { name: "MOBILE ONLY", price: 32000, stock: 5, code: "vidplatmobile1pcs" }
+      { name: "MOBILE ONLY", price: 32000, stock: 5, code: "vidplatmobile1pcs", bot: true }
     ]
   },
   {
@@ -77,7 +80,7 @@ const PRODUCTS = [
     img: "assets/img/spotify.png",
     desc: "Spotify adalah aplikasi streaming musik terbesar di dunia yang menghadirkan jutaan lagu, podcast, dan playlist dari berbagai genre dan artis favoritmu.",
     variants: [
-      { name: "INDIVIDUAL 1 BULAN No Garansi", price: 25000, stock: 5, code: "spoindividual" }
+      { name: "INDIVIDUAL 1 BULAN No Garansi", price: 25000, stock: 5, code: "spoindividual", bot: true }
     ]
   },
   {
@@ -87,7 +90,7 @@ const PRODUCTS = [
     img: "assets/img/zoompro.png",
     desc: "Zoom Pro adalah paket premium yang dirancang untuk kebutuhan meeting profesional dengan durasi yang lebih panjang, kualitas lebih stabil, dan fitur lengkap. Mulai dari kapasitas hingga 100 peserta, cloud recording, breakout rooms, hingga tools presentasi dan kolaborasi—semuanya tersedia dalam satu platform. Cocok untuk guru, mahasiswa, perusahaan, pelaku bisnis online, tim kerja remote, hingga penyelenggara webinar. Dengan Zoom Pro, kamu bisa menjalankan meeting tanpa batasan waktu, lebih aman,",
     variants: [
-      { name: "ZOOM 14D", price: 10000, stock: 1, code: "zoom14d" }
+      { name: "ZOOM 14D", price: 10000, stock: 1, code: "zoom14d", bot: true }
     ]
   }
 ];
@@ -147,11 +150,15 @@ function cartPage(){
   document.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{const c=cart[b.dataset.p];if(c.qty<detail(c).v.stock)c.qty++;else toast("Maksimal sesuai stok");save();cartPage()});
   document.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>{cart.splice(b.dataset.r,1);save();cartPage()});
 }
-/* Format pesan order WA: buy <kode varian> <jumlah>  ->  contoh: buy canva1b 1 */
-const orderText=()=>{const c=cart[0];return `buy ${detail(c).v.code} ${c.qty}`};
+/* Format pesan order WA:
+   bot: true  -> buy <kode varian> <jumlah>  (contoh: buy canva1b 1)
+   bot: false -> pesan biasa untuk dibaca manual */
+const orderText=()=>{const c=cart[0],{p,v}=detail(c);
+  return v.bot ? `buy ${v.code} ${c.qty}` : `Halo, saya mau order... ${p.name} - ${v.name} x${c.qty}`};
 function checkout(){
   if(!cart.length){location.hash="#/keranjang";return}
   const msg=orderText(),{p,v,sub}=detail(cart[0]);
+  const num=v.bot?WA_BOT:WA_MANUAL;
   app.innerHTML=`<div class="crumb"><a href="#/">Beranda</a> / <a href="#/keranjang">Keranjang</a> / Pembayaran</div><div class="lay">
   <div class="box"><h3>Order via WhatsApp</h3><div class="pay"><span class="chip">FORMAT ORDER</span><p style="margin-top:8px">Pesan yang akan dikirim ke WhatsApp:</p>
   <div style="font-family:monospace;font-size:1.3rem;font-weight:700;color:var(--p);background:#fff;border:2px dashed var(--p);border-radius:12px;padding:14px;margin:12px 0;word-break:break-all">${esc(msg)}</div>
@@ -159,7 +166,7 @@ function checkout(){
   <ol class="steps"><li>Klik tombol di bawah, WhatsApp terbuka dengan pesan sudah terisi.</li><li>Kirim pesan tersebut tanpa mengubah isinya.</li><li>QRIS pembayaran akan dikirim sesuai kode order. Bayar, lalu kirim bukti pembayaran.</li></ol>
   <button class="btn wa full" id="wa">💬 Kirim Order via WhatsApp</button></div>
   <div class="box"><h3>Pesanan Kamu</h3><div class="row"><span>${esc(p.name)}<br><small>${esc(v.name)} x${cart[0].qty}</small></span><b>${rp(sub)}</b></div><div class="row tot"><span>Total</span><span>${rp(total())}</span></div></div></div>`;
-  $("#wa").onclick=()=>window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
+  $("#wa").onclick=()=>window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`,"_blank");
 }
 /* ===== ROUTER ===== */
 function route(){
